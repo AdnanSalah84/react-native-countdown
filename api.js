@@ -3,11 +3,11 @@ import Constants from 'expo-constants';
 import uuid from 'uuid'
 
 const { manifest } = Constants;
-const api = manifest.packagerOpts.dev ? manifest.debuggerHost.split(`:`).shift().concat(`:3000`)
-     : `localhost:3000`;
-
-// const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev ? manifest.debuggerHost.split(`:`).shift().concat(`:3000`)
+// const api = manifest.packagerOpts.dev ? manifest.debuggerHost.split(`:`).shift().concat(`:3000`)
 //      : `localhost:3000`;
+
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev ? manifest.debuggerHost.split(`:`).shift().concat(`:3000`)
+    : `localhost:3000`;
 
 
 const url = `http://${api}/events`;
